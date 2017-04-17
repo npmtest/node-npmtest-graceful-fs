@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-graceful-fs/graceful-fs/polyfills.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-graceful-fs/node_modules/graceful-fs/polyfills.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-graceful-fs">npmtest-graceful-fs (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-graceful-fs/graceful-fs/polyfills.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-graceful-fs/node_modules/graceful-fs/polyfills.js</span></h1>
     <h2>
         
         Statements: <span class="metric">36.59% <small>(75 / 205)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-graceful-fs/graceful-fs/</a> » polyfills.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-graceful-fs/node_modules/graceful-fs/</a> &#187; polyfills.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -892,9 +894,9 @@ try {
 } catch (er) {}
 &nbsp;
 var chdir = process.chdir
-process.chdir = <span class="fstat-no" title="function not covered">function(d) {</span>
-<span class="cstat-no" title="statement not covered">  cwd = null</span>
-<span class="cstat-no" title="statement not covered">  chdir.call(process, d)</span>
+process.chdir = <span class="fstat-no" title="function not covered" >function(d) {</span>
+<span class="cstat-no" title="statement not covered" >  cwd = null</span>
+<span class="cstat-no" title="statement not covered" >  chdir.call(process, d)</span>
 }
 &nbsp;
 module.exports = patch
@@ -904,13 +906,13 @@ function patch (fs) {
 &nbsp;
   // lchmod, broken prior to 0.6.2
   // back-port the fix here.
-  <span class="missing-if-branch" title="if path not taken">I</span>if (constants.hasOwnProperty('O_SYMLINK') &amp;&amp;
-<span class="branch-1 cbranch-no" title="branch not covered">      process.version.match(/^v0\.6\.[0-2]|^v0\.5\./))</span> {
-<span class="cstat-no" title="statement not covered">    patchLchmod(fs)</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (constants.hasOwnProperty('O_SYMLINK') &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >      process.version.match(/^v0\.6\.[0-2]|^v0\.5\./))</span> {
+<span class="cstat-no" title="statement not covered" >    patchLchmod(fs)</span>
   }
 &nbsp;
   // lutimes implementation, or no-op
-  <span class="missing-if-branch" title="else path not taken">E</span>if (!fs.lutimes) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!fs.lutimes) {
     patchLutimes(fs)
   }
 &nbsp;
@@ -944,17 +946,17 @@ function patch (fs) {
   fs.lstatSync = statFixSync(fs.lstatSync)
 &nbsp;
   // if lchmod/lchown do not exist, then make them no-ops
-  <span class="missing-if-branch" title="else path not taken">E</span>if (!fs.lchmod) {
-    fs.lchmod = <span class="fstat-no" title="function not covered">function (path, mode, cb) {</span>
-<span class="cstat-no" title="statement not covered">      if (cb) <span class="cstat-no" title="statement not covered">process.nextTick(cb)</span></span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!fs.lchmod) {
+    fs.lchmod = <span class="fstat-no" title="function not covered" >function (path, mode, cb) {</span>
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >process.nextTick(cb)</span></span>
     }
-    fs.lchmodSync = <span class="fstat-no" title="function not covered">function () {</span>}
+    fs.lchmodSync = <span class="fstat-no" title="function not covered" >function () {</span>}
   }
-  <span class="missing-if-branch" title="else path not taken">E</span>if (!fs.lchown) {
-    fs.lchown = <span class="fstat-no" title="function not covered">function (path, uid, gid, cb) {</span>
-<span class="cstat-no" title="statement not covered">      if (cb) <span class="cstat-no" title="statement not covered">process.nextTick(cb)</span></span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!fs.lchown) {
+    fs.lchown = <span class="fstat-no" title="function not covered" >function (path, uid, gid, cb) {</span>
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >process.nextTick(cb)</span></span>
     }
-    fs.lchownSync = <span class="fstat-no" title="function not covered">function () {</span>}
+    fs.lchownSync = <span class="fstat-no" title="function not covered" >function () {</span>}
   }
 &nbsp;
   // on Windows, A/V software can lock the directory, causing this
@@ -966,164 +968,164 @@ function patch (fs) {
   // failures. Also, take care to yield the scheduler. Windows scheduling gives
   // CPU to a busy looping process, which can cause the program causing the lock
   // contention to be starved of CPU by node, so the contention doesn't resolve.
-  <span class="missing-if-branch" title="if path not taken">I</span>if (platform === "win32") {
-<span class="cstat-no" title="statement not covered">    fs.rename = (<span class="fstat-no" title="function not covered">function (fs$rename) {</span> <span class="cstat-no" title="statement not covered">return <span class="fstat-no" title="function not covered">function (from, to, cb) {</span></span></span>
-<span class="cstat-no" title="statement not covered">      var start = Date.now()</span>
-<span class="cstat-no" title="statement not covered">      var backoff = 0;</span>
-<span class="cstat-no" title="statement not covered">      fs$rename(from, to, <span class="fstat-no" title="function not covered">function CB (er) {</span></span>
-<span class="cstat-no" title="statement not covered">        if (er</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (platform === "win32") {
+<span class="cstat-no" title="statement not covered" >    fs.rename = (<span class="fstat-no" title="function not covered" >function (fs$rename) {</span> <span class="cstat-no" title="statement not covered" >return <span class="fstat-no" title="function not covered" >function (from, to, cb) {</span></span></span>
+<span class="cstat-no" title="statement not covered" >      var start = Date.now()</span>
+<span class="cstat-no" title="statement not covered" >      var backoff = 0;</span>
+<span class="cstat-no" title="statement not covered" >      fs$rename(from, to, <span class="fstat-no" title="function not covered" >function CB (er) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (er</span>
             &amp;&amp; (er.code === "EACCES" || er.code === "EPERM")
             &amp;&amp; Date.now() - start &lt; 60000) {
-<span class="cstat-no" title="statement not covered">          setTimeout(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            fs.stat(to, <span class="fstat-no" title="function not covered">function (stater, st) {</span></span>
-<span class="cstat-no" title="statement not covered">              if (stater &amp;&amp; stater.code === "ENOENT")</span>
-<span class="cstat-no" title="statement not covered">                fs$rename(from, to, CB);</span>
+<span class="cstat-no" title="statement not covered" >          setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            fs.stat(to, <span class="fstat-no" title="function not covered" >function (stater, st) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (stater &amp;&amp; stater.code === "ENOENT")</span>
+<span class="cstat-no" title="statement not covered" >                fs$rename(from, to, CB);</span>
               else
-<span class="cstat-no" title="statement not covered">                cb(er)</span>
+<span class="cstat-no" title="statement not covered" >                cb(er)</span>
             })
           }, backoff)
-<span class="cstat-no" title="statement not covered">          if (backoff &lt; 100)</span>
-<span class="cstat-no" title="statement not covered">            backoff += 10;</span>
-<span class="cstat-no" title="statement not covered">          return;</span>
+<span class="cstat-no" title="statement not covered" >          if (backoff &lt; 100)</span>
+<span class="cstat-no" title="statement not covered" >            backoff += 10;</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
         }
-<span class="cstat-no" title="statement not covered">        if (cb) <span class="cstat-no" title="statement not covered">cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >        if (cb) <span class="cstat-no" title="statement not covered" >cb(er)</span></span>
       })
     }})(fs.rename)
   }
 &nbsp;
   // if read() returns EAGAIN, then just try it again.
-  fs.read = (function (fs$read) { return <span class="fstat-no" title="function not covered">function (fd, buffer, offset, length, position, callback_) {</span>
-<span class="cstat-no" title="statement not covered">    var callback</span>
-<span class="cstat-no" title="statement not covered">    if (callback_ &amp;&amp; typeof callback_ === 'function') {</span>
-<span class="cstat-no" title="statement not covered">      var eagCounter = 0</span>
-<span class="cstat-no" title="statement not covered">      callback = <span class="fstat-no" title="function not covered">function (er, _, __) {</span></span>
-<span class="cstat-no" title="statement not covered">        if (er &amp;&amp; er.code === 'EAGAIN' &amp;&amp; eagCounter &lt; 10) {</span>
-<span class="cstat-no" title="statement not covered">          eagCounter ++</span>
-<span class="cstat-no" title="statement not covered">          return fs$read.call(fs, fd, buffer, offset, length, position, callback)</span>
+  fs.read = (function (fs$read) { return <span class="fstat-no" title="function not covered" >function (fd, buffer, offset, length, position, callback_) {</span>
+<span class="cstat-no" title="statement not covered" >    var callback</span>
+<span class="cstat-no" title="statement not covered" >    if (callback_ &amp;&amp; typeof callback_ === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >      var eagCounter = 0</span>
+<span class="cstat-no" title="statement not covered" >      callback = <span class="fstat-no" title="function not covered" >function (er, _, __) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (er &amp;&amp; er.code === 'EAGAIN' &amp;&amp; eagCounter &lt; 10) {</span>
+<span class="cstat-no" title="statement not covered" >          eagCounter ++</span>
+<span class="cstat-no" title="statement not covered" >          return fs$read.call(fs, fd, buffer, offset, length, position, callback)</span>
         }
-<span class="cstat-no" title="statement not covered">        callback_.apply(this, arguments)</span>
+<span class="cstat-no" title="statement not covered" >        callback_.apply(this, arguments)</span>
       }
     }
-<span class="cstat-no" title="statement not covered">    return fs$read.call(fs, fd, buffer, offset, length, position, callback)</span>
+<span class="cstat-no" title="statement not covered" >    return fs$read.call(fs, fd, buffer, offset, length, position, callback)</span>
   }})(fs.read)
 &nbsp;
-  fs.readSync = (function (fs$readSync) { return <span class="fstat-no" title="function not covered">function (fd, buffer, offset, length, position) {</span>
-<span class="cstat-no" title="statement not covered">    var eagCounter = 0</span>
-<span class="cstat-no" title="statement not covered">    while (true) {</span>
-<span class="cstat-no" title="statement not covered">      try {</span>
-<span class="cstat-no" title="statement not covered">        return fs$readSync.call(fs, fd, buffer, offset, length, position)</span>
+  fs.readSync = (function (fs$readSync) { return <span class="fstat-no" title="function not covered" >function (fd, buffer, offset, length, position) {</span>
+<span class="cstat-no" title="statement not covered" >    var eagCounter = 0</span>
+<span class="cstat-no" title="statement not covered" >    while (true) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        return fs$readSync.call(fs, fd, buffer, offset, length, position)</span>
       } catch (er) {
-<span class="cstat-no" title="statement not covered">        if (er.code === 'EAGAIN' &amp;&amp; eagCounter &lt; 10) {</span>
-<span class="cstat-no" title="statement not covered">          eagCounter ++</span>
-<span class="cstat-no" title="statement not covered">          continue</span>
+<span class="cstat-no" title="statement not covered" >        if (er.code === 'EAGAIN' &amp;&amp; eagCounter &lt; 10) {</span>
+<span class="cstat-no" title="statement not covered" >          eagCounter ++</span>
+<span class="cstat-no" title="statement not covered" >          continue</span>
         }
-<span class="cstat-no" title="statement not covered">        throw er</span>
+<span class="cstat-no" title="statement not covered" >        throw er</span>
       }
     }
   }})(fs.readSync)
 }
 &nbsp;
-<span class="fstat-no" title="function not covered">function patchLchmod (fs) {</span>
-<span class="cstat-no" title="statement not covered">  fs.lchmod = <span class="fstat-no" title="function not covered">function (path, mode, callback) {</span></span>
-<span class="cstat-no" title="statement not covered">    fs.open( path</span>
+<span class="fstat-no" title="function not covered" >function patchLchmod (fs) {</span>
+<span class="cstat-no" title="statement not covered" >  fs.lchmod = <span class="fstat-no" title="function not covered" >function (path, mode, callback) {</span></span>
+<span class="cstat-no" title="statement not covered" >    fs.open( path</span>
            , constants.O_WRONLY | constants.O_SYMLINK
            , mode
-           , <span class="fstat-no" title="function not covered">function (err, fd) {</span>
-<span class="cstat-no" title="statement not covered">      if (err) {</span>
-<span class="cstat-no" title="statement not covered">        if (callback) <span class="cstat-no" title="statement not covered">callback(err)</span></span>
-<span class="cstat-no" title="statement not covered">        return</span>
+           , <span class="fstat-no" title="function not covered" >function (err, fd) {</span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        if (callback) <span class="cstat-no" title="statement not covered" >callback(err)</span></span>
+<span class="cstat-no" title="statement not covered" >        return</span>
       }
       // prefer to return the chmod error, if one occurs,
       // but still try to close, and report closing errors if they occur.
-<span class="cstat-no" title="statement not covered">      fs.fchmod(fd, mode, <span class="fstat-no" title="function not covered">function (err) {</span></span>
-<span class="cstat-no" title="statement not covered">        fs.close(fd, <span class="fstat-no" title="function not covered">function(err2) {</span></span>
-<span class="cstat-no" title="statement not covered">          if (callback) <span class="cstat-no" title="statement not covered">callback(err || err2)</span></span>
+<span class="cstat-no" title="statement not covered" >      fs.fchmod(fd, mode, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >        fs.close(fd, <span class="fstat-no" title="function not covered" >function(err2) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (callback) <span class="cstat-no" title="statement not covered" >callback(err || err2)</span></span>
         })
       })
     })
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  fs.lchmodSync = <span class="fstat-no" title="function not covered">function (path, mode) {</span></span>
-<span class="cstat-no" title="statement not covered">    var fd = fs.openSync(path, constants.O_WRONLY | constants.O_SYMLINK, mode)</span>
+<span class="cstat-no" title="statement not covered" >  fs.lchmodSync = <span class="fstat-no" title="function not covered" >function (path, mode) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var fd = fs.openSync(path, constants.O_WRONLY | constants.O_SYMLINK, mode)</span>
 &nbsp;
     // prefer to return the chmod error, if one occurs,
     // but still try to close, and report closing errors if they occur.
-<span class="cstat-no" title="statement not covered">    var threw = true</span>
-<span class="cstat-no" title="statement not covered">    var ret</span>
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      ret = fs.fchmodSync(fd, mode)</span>
-<span class="cstat-no" title="statement not covered">      threw = false</span>
+<span class="cstat-no" title="statement not covered" >    var threw = true</span>
+<span class="cstat-no" title="statement not covered" >    var ret</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      ret = fs.fchmodSync(fd, mode)</span>
+<span class="cstat-no" title="statement not covered" >      threw = false</span>
     } finally {
-<span class="cstat-no" title="statement not covered">      if (threw) {</span>
-<span class="cstat-no" title="statement not covered">        try {</span>
-<span class="cstat-no" title="statement not covered">          fs.closeSync(fd)</span>
+<span class="cstat-no" title="statement not covered" >      if (threw) {</span>
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >          fs.closeSync(fd)</span>
         } catch (er) {}
       } else {
-<span class="cstat-no" title="statement not covered">        fs.closeSync(fd)</span>
+<span class="cstat-no" title="statement not covered" >        fs.closeSync(fd)</span>
       }
     }
-<span class="cstat-no" title="statement not covered">    return ret</span>
+<span class="cstat-no" title="statement not covered" >    return ret</span>
   }
 }
 &nbsp;
 function patchLutimes (fs) {
-  <span class="missing-if-branch" title="if path not taken">I</span>if (constants.hasOwnProperty("O_SYMLINK")) {
-<span class="cstat-no" title="statement not covered">    fs.lutimes = <span class="fstat-no" title="function not covered">function (path, at, mt, cb) {</span></span>
-<span class="cstat-no" title="statement not covered">      fs.open(path, constants.O_SYMLINK, <span class="fstat-no" title="function not covered">function (er, fd) {</span></span>
-<span class="cstat-no" title="statement not covered">        if (er) {</span>
-<span class="cstat-no" title="statement not covered">          if (cb) <span class="cstat-no" title="statement not covered">cb(er)</span></span>
-<span class="cstat-no" title="statement not covered">          return</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (constants.hasOwnProperty("O_SYMLINK")) {
+<span class="cstat-no" title="statement not covered" >    fs.lutimes = <span class="fstat-no" title="function not covered" >function (path, at, mt, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >      fs.open(path, constants.O_SYMLINK, <span class="fstat-no" title="function not covered" >function (er, fd) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (er) {</span>
+<span class="cstat-no" title="statement not covered" >          if (cb) <span class="cstat-no" title="statement not covered" >cb(er)</span></span>
+<span class="cstat-no" title="statement not covered" >          return</span>
         }
-<span class="cstat-no" title="statement not covered">        fs.futimes(fd, at, mt, <span class="fstat-no" title="function not covered">function (er) {</span></span>
-<span class="cstat-no" title="statement not covered">          fs.close(fd, <span class="fstat-no" title="function not covered">function (er2) {</span></span>
-<span class="cstat-no" title="statement not covered">            if (cb) <span class="cstat-no" title="statement not covered">cb(er || er2)</span></span>
+<span class="cstat-no" title="statement not covered" >        fs.futimes(fd, at, mt, <span class="fstat-no" title="function not covered" >function (er) {</span></span>
+<span class="cstat-no" title="statement not covered" >          fs.close(fd, <span class="fstat-no" title="function not covered" >function (er2) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (cb) <span class="cstat-no" title="statement not covered" >cb(er || er2)</span></span>
           })
         })
       })
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    fs.lutimesSync = <span class="fstat-no" title="function not covered">function (path, at, mt) {</span></span>
-<span class="cstat-no" title="statement not covered">      var fd = fs.openSync(path, constants.O_SYMLINK)</span>
-<span class="cstat-no" title="statement not covered">      var ret</span>
-<span class="cstat-no" title="statement not covered">      var threw = true</span>
-<span class="cstat-no" title="statement not covered">      try {</span>
-<span class="cstat-no" title="statement not covered">        ret = fs.futimesSync(fd, at, mt)</span>
-<span class="cstat-no" title="statement not covered">        threw = false</span>
+<span class="cstat-no" title="statement not covered" >    fs.lutimesSync = <span class="fstat-no" title="function not covered" >function (path, at, mt) {</span></span>
+<span class="cstat-no" title="statement not covered" >      var fd = fs.openSync(path, constants.O_SYMLINK)</span>
+<span class="cstat-no" title="statement not covered" >      var ret</span>
+<span class="cstat-no" title="statement not covered" >      var threw = true</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        ret = fs.futimesSync(fd, at, mt)</span>
+<span class="cstat-no" title="statement not covered" >        threw = false</span>
       } finally {
-<span class="cstat-no" title="statement not covered">        if (threw) {</span>
-<span class="cstat-no" title="statement not covered">          try {</span>
-<span class="cstat-no" title="statement not covered">            fs.closeSync(fd)</span>
+<span class="cstat-no" title="statement not covered" >        if (threw) {</span>
+<span class="cstat-no" title="statement not covered" >          try {</span>
+<span class="cstat-no" title="statement not covered" >            fs.closeSync(fd)</span>
           } catch (er) {}
         } else {
-<span class="cstat-no" title="statement not covered">          fs.closeSync(fd)</span>
+<span class="cstat-no" title="statement not covered" >          fs.closeSync(fd)</span>
         }
       }
-<span class="cstat-no" title="statement not covered">      return ret</span>
+<span class="cstat-no" title="statement not covered" >      return ret</span>
     }
 &nbsp;
   } else {
-    fs.lutimes = <span class="fstat-no" title="function not covered">function (_a, _b, _c, cb) {</span> <span class="cstat-no" title="statement not covered">if (cb) <span class="cstat-no" title="statement not covered">process.nextTick(cb) }</span></span>
-    fs.lutimesSync = <span class="fstat-no" title="function not covered">function () {</span>}
+    fs.lutimes = <span class="fstat-no" title="function not covered" >function (_a, _b, _c, cb) {</span> <span class="cstat-no" title="statement not covered" >if (cb) <span class="cstat-no" title="statement not covered" >process.nextTick(cb) }</span></span>
+    fs.lutimesSync = <span class="fstat-no" title="function not covered" >function () {</span>}
   }
 }
 &nbsp;
 function chmodFix (orig) {
   if (!orig) return orig
-  return <span class="fstat-no" title="function not covered">function (target, mode, cb) {</span>
-<span class="cstat-no" title="statement not covered">    return orig.call(fs, target, mode, <span class="fstat-no" title="function not covered">function (er) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (chownErOk(er)) <span class="cstat-no" title="statement not covered">er = null</span></span>
-<span class="cstat-no" title="statement not covered">      if (cb) <span class="cstat-no" title="statement not covered">cb.apply(this, arguments)</span></span>
+  return <span class="fstat-no" title="function not covered" >function (target, mode, cb) {</span>
+<span class="cstat-no" title="statement not covered" >    return orig.call(fs, target, mode, <span class="fstat-no" title="function not covered" >function (er) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (chownErOk(er)) <span class="cstat-no" title="statement not covered" >er = null</span></span>
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >cb.apply(this, arguments)</span></span>
     })
   }
 }
 &nbsp;
 function chmodFixSync (orig) {
   if (!orig) return orig
-  return <span class="fstat-no" title="function not covered">function (target, mode) {</span>
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      return orig.call(fs, target, mode)</span>
+  return <span class="fstat-no" title="function not covered" >function (target, mode) {</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      return orig.call(fs, target, mode)</span>
     } catch (er) {
-<span class="cstat-no" title="statement not covered">      if (!chownErOk(er)) <span class="cstat-no" title="statement not covered">throw er</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!chownErOk(er)) <span class="cstat-no" title="statement not covered" >throw er</span></span>
     }
   }
 }
@@ -1131,49 +1133,49 @@ function chmodFixSync (orig) {
 &nbsp;
 function chownFix (orig) {
   if (!orig) return orig
-  return <span class="fstat-no" title="function not covered">function (target, uid, gid, cb) {</span>
-<span class="cstat-no" title="statement not covered">    return orig.call(fs, target, uid, gid, <span class="fstat-no" title="function not covered">function (er) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (chownErOk(er)) <span class="cstat-no" title="statement not covered">er = null</span></span>
-<span class="cstat-no" title="statement not covered">      if (cb) <span class="cstat-no" title="statement not covered">cb.apply(this, arguments)</span></span>
+  return <span class="fstat-no" title="function not covered" >function (target, uid, gid, cb) {</span>
+<span class="cstat-no" title="statement not covered" >    return orig.call(fs, target, uid, gid, <span class="fstat-no" title="function not covered" >function (er) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (chownErOk(er)) <span class="cstat-no" title="statement not covered" >er = null</span></span>
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >cb.apply(this, arguments)</span></span>
     })
   }
 }
 &nbsp;
 function chownFixSync (orig) {
   if (!orig) return orig
-  return <span class="fstat-no" title="function not covered">function (target, uid, gid) {</span>
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">      return orig.call(fs, target, uid, gid)</span>
+  return <span class="fstat-no" title="function not covered" >function (target, uid, gid) {</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      return orig.call(fs, target, uid, gid)</span>
     } catch (er) {
-<span class="cstat-no" title="statement not covered">      if (!chownErOk(er)) <span class="cstat-no" title="statement not covered">throw er</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!chownErOk(er)) <span class="cstat-no" title="statement not covered" >throw er</span></span>
     }
   }
 }
 &nbsp;
 &nbsp;
 function statFix (orig) {
-  <span class="missing-if-branch" title="if path not taken">I</span>if (!orig) <span class="cstat-no" title="statement not covered">return orig</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!orig) <span class="cstat-no" title="statement not covered" >return orig</span>
   // Older versions of Node erroneously returned signed integers for
   // uid + gid.
-  return <span class="fstat-no" title="function not covered">function (target, cb) {</span>
-<span class="cstat-no" title="statement not covered">    return orig.call(fs, target, <span class="fstat-no" title="function not covered">function (er, stats) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (!stats) <span class="cstat-no" title="statement not covered">return cb.apply(this, arguments)</span></span>
-<span class="cstat-no" title="statement not covered">      if (stats.uid &lt; 0) <span class="cstat-no" title="statement not covered">stats.uid += 0x100000000</span></span>
-<span class="cstat-no" title="statement not covered">      if (stats.gid &lt; 0) <span class="cstat-no" title="statement not covered">stats.gid += 0x100000000</span></span>
-<span class="cstat-no" title="statement not covered">      if (cb) <span class="cstat-no" title="statement not covered">cb.apply(this, arguments)</span></span>
+  return <span class="fstat-no" title="function not covered" >function (target, cb) {</span>
+<span class="cstat-no" title="statement not covered" >    return orig.call(fs, target, <span class="fstat-no" title="function not covered" >function (er, stats) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!stats) <span class="cstat-no" title="statement not covered" >return cb.apply(this, arguments)</span></span>
+<span class="cstat-no" title="statement not covered" >      if (stats.uid &lt; 0) <span class="cstat-no" title="statement not covered" >stats.uid += 0x100000000</span></span>
+<span class="cstat-no" title="statement not covered" >      if (stats.gid &lt; 0) <span class="cstat-no" title="statement not covered" >stats.gid += 0x100000000</span></span>
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >cb.apply(this, arguments)</span></span>
     })
   }
 }
 &nbsp;
 function statFixSync (orig) {
-  <span class="missing-if-branch" title="if path not taken">I</span>if (!orig) <span class="cstat-no" title="statement not covered">return orig</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!orig) <span class="cstat-no" title="statement not covered" >return orig</span>
   // Older versions of Node erroneously returned signed integers for
   // uid + gid.
-  return <span class="fstat-no" title="function not covered">function (target) {</span>
-<span class="cstat-no" title="statement not covered">    var stats = orig.call(fs, target)</span>
-<span class="cstat-no" title="statement not covered">    if (stats.uid &lt; 0) <span class="cstat-no" title="statement not covered">stats.uid += 0x100000000</span></span>
-<span class="cstat-no" title="statement not covered">    if (stats.gid &lt; 0) <span class="cstat-no" title="statement not covered">stats.gid += 0x100000000</span></span>
-<span class="cstat-no" title="statement not covered">    return stats;</span>
+  return <span class="fstat-no" title="function not covered" >function (target) {</span>
+<span class="cstat-no" title="statement not covered" >    var stats = orig.call(fs, target)</span>
+<span class="cstat-no" title="statement not covered" >    if (stats.uid &lt; 0) <span class="cstat-no" title="statement not covered" >stats.uid += 0x100000000</span></span>
+<span class="cstat-no" title="statement not covered" >    if (stats.gid &lt; 0) <span class="cstat-no" title="statement not covered" >stats.gid += 0x100000000</span></span>
+<span class="cstat-no" title="statement not covered" >    return stats;</span>
   }
 }
 &nbsp;
@@ -1189,28 +1191,27 @@ function statFixSync (orig) {
 //
 // When running as root, or if other types of errors are
 // encountered, then it's strict.
-<span class="fstat-no" title="function not covered">function chownErOk (er) {</span>
-<span class="cstat-no" title="statement not covered">  if (!er)</span>
-<span class="cstat-no" title="statement not covered">    return true</span>
+<span class="fstat-no" title="function not covered" >function chownErOk (er) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!er)</span>
+<span class="cstat-no" title="statement not covered" >    return true</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (er.code === "ENOSYS")</span>
-<span class="cstat-no" title="statement not covered">    return true</span>
+<span class="cstat-no" title="statement not covered" >  if (er.code === "ENOSYS")</span>
+<span class="cstat-no" title="statement not covered" >    return true</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var nonroot = !process.getuid || process.getuid() !== 0</span>
-<span class="cstat-no" title="statement not covered">  if (nonroot) {</span>
-<span class="cstat-no" title="statement not covered">    if (er.code === "EINVAL" || er.code === "EPERM")</span>
-<span class="cstat-no" title="statement not covered">      return true</span>
+<span class="cstat-no" title="statement not covered" >  var nonroot = !process.getuid || process.getuid() !== 0</span>
+<span class="cstat-no" title="statement not covered" >  if (nonroot) {</span>
+<span class="cstat-no" title="statement not covered" >    if (er.code === "EINVAL" || er.code === "EPERM")</span>
+<span class="cstat-no" title="statement not covered" >      return true</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return false</span>
+<span class="cstat-no" title="statement not covered" >  return false</span>
 }
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 10:23:16 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 11:22:57 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>

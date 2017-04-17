@@ -1,7 +1,7 @@
 # test coverage for  [graceful-fs (v4.1.11)](https://github.com/isaacs/node-graceful-fs#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-graceful-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-graceful-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-graceful-fs.svg)](https://travis-ci.org/npmtest/node-npmtest-graceful-fs)
 #### A drop-in replacement for fs, making various improvements.
 
-[![NPM](https://nodei.co/npm/graceful-fs.png?downloads=true)](https://www.npmjs.com/package/graceful-fs)
+[![NPM](https://nodei.co/npm/graceful-fs.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/graceful-fs)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-graceful-fs/tree/alpha)|
 |--:|:--|
@@ -9,11 +9,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-graceful-fs/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-graceful-fs/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-graceful-fs/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-graceful-fs/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-graceful-fs/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-graceful-fs/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-graceful-fs/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-graceful-fs/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-graceful-fs/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-graceful-fs%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-graceful-fs/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-graceful-fs/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-graceful-fs/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-graceful-fs/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-graceful-fs%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-graceful-fs/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-graceful-fs/build/test-report.html](https://npmtest.github.io/node-npmtest-graceful-fs/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-graceful-fs/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-graceful-fs/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-graceful-fs/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-graceful-fs/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-graceful-fs/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-graceful-fs/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-graceful-fs/build/screenCapture.npmPackageListing.svg)
 
@@ -74,13 +80,11 @@
     "main": "graceful-fs.js",
     "maintainers": [
         {
-            "name": "isaacs",
-            "email": "i@izs.me"
+            "name": "isaacs"
         }
     ],
     "name": "graceful-fs",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/isaacs/node-graceful-fs.git"

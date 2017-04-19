@@ -1,6 +1,6 @@
 # npmtest-graceful-fs
 
-#### test coverage for  [graceful-fs (v4.1.11)](https://github.com/isaacs/node-graceful-fs#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-graceful-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-graceful-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-graceful-fs.svg)](https://travis-ci.org/npmtest/node-npmtest-graceful-fs)
+#### basic test coverage for  [graceful-fs (v4.1.11)](https://github.com/isaacs/node-graceful-fs#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-graceful-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-graceful-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-graceful-fs.svg)](https://travis-ci.org/npmtest/node-npmtest-graceful-fs)
 
 #### A drop-in replacement for fs, making various improvements.
 
